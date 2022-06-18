@@ -12,13 +12,12 @@ const invalidate = (text, queries) => {
       const q = joinSelectors(query.slice(1));
       const qu = $(q);
       if (qu.length) {
-        return `+: ${q}
-${qu.toString()}`;
+        return [`+:${q}`, `${qu.toString()}`];
       }
     } else {
       const q = joinSelectors(query);
       if (!$(q).length) {
-        return `-: ${q}`;
+        return [`-:${q}`];
       }
     }
   }

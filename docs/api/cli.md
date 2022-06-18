@@ -3,7 +3,7 @@
 ## Installation
 
 ```bash
-npm install --global cdtd
+npm install --global cdtdnpm
 ```
 
 ## Usage

@@ -3,7 +3,7 @@ import extractRepeats from "./extract-repeats.mjs";
 export const getQueries = function* (q, parent = []) {
   const [query, repeat] = extractRepeats(q);
   const [lower, upper] = repeat.split(",");
-  const m = lower ? Number(lower) : -Infinity;
+  const m = lower ? Number(lower) : 0;
   let n = 0;
   if (upper) {
     n = Number(upper);
@@ -18,7 +18,7 @@ export const getQueries = function* (q, parent = []) {
   if (m > 1) {
     yield [...parent, query, `&:nth-child(${m})`]; // ensure lower
   }
-  if (n < Infinity && n > 0) {
+  if (n < Infinity && n > 1) {
     yield [CDTD_NEGATIVE_QUERY, ...parent, query, `&:nth-child(${n + 1})`]; // disallow greater than upper
   }
 };
