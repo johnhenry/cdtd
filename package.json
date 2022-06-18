@@ -1,0 +1,18 @@
+{
+  "name": "cdtd",
+  "version": "0.0.0",
+  "description": "",
+  "main": "./src/index.mjs",
+  "bin": {
+    "cdtd": "./src/cli.mjs"
+  },
+  "scripts": {
+    "test": "node ./test/test.mjs"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.11",
+    "emmet": "^2.3.6"
+  }
+}

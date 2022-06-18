@@ -1,0 +1,7 @@
+ul {
+  &.thingy
+  li -- 1,2 {
+    &.other-thingy;
+    div
+  }
+}
