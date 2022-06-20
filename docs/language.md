@@ -4,8 +4,6 @@ By design, the CDTD language is similar to [nested CSS](https://www.w3.org/TR/cs
 
 The main difference is that CDTD focuses on properties and lacks selectors.
 
-Internally, a CDTD
-
 ## Basic Validation
 
 The following HTML would pass validation
@@ -49,9 +47,9 @@ while the following would fail because of the missing 'main' class on the 'body'
 
 ## Ampersand (&)
 
-The ampersand is used to "join" a selector to it's parent.
+The ampersand is used to "join" a selector to its parent.
 
-```crdt
+```cdtd
 body {
   &.main {
     *
@@ -61,7 +59,7 @@ body {
 
 and
 
-```crdt
+```cdtd
 body.main {
   *
 }

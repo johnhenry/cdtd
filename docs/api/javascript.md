@@ -12,7 +12,7 @@ npm install cdtd
 
 Returns failed query string if documents are invalid.
 
-Returns undefined otherwise
+Returns empty string otherwise
 
 ```javascript
 import { invalidate } from "cdtd";

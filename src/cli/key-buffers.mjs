@@ -12,9 +12,6 @@ export const ARROW_UP = Buffer.from([0x1b, 0x5b, 0x41]);
 export const ARROW_DOWN = Buffer.from([0x1b, 0x5b, 0x42]);
 export const ARROW_LEFT = Buffer.from([0x1b, 0x5b, 0x44]);
 export const ARROW_RIGHT = Buffer.from([0x1b, 0x5b, 0x43]);
-
-export const ESCAPE = Buffer.from([0x1b]);
-
 export const SPACE = Buffer.from([0x20]);
-
 export const ENTER = Buffer.from([0x0d]);
+export const BACKSPACE = Buffer.from([0x7f]);

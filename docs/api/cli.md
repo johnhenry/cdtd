@@ -3,26 +3,40 @@
 ## Installation
 
 ```bash
-npm install --global cdtdnpm
+npm install --global cdtd
 ```
 
 ## Usage
 
 ### Validate
 
+If document is valid, this command exits without error.
+otherwise returns failed query along with selected item (if applicable)
+
 ```bash
-cdtd validate <path-to-schema-file> <path-to-html-document> <path-to-html-document2> ...
+cdtd validate --schema <path-to-schema-file> <path-to-html-document
 ```
 
-if document is valid, this command exits without error.
-otherwise returns failed query along with selected item (if applicable)
+#### Negate
+
+Ensure documents DO NOT pass validation with the `--negate` flag
+
+```bash
+cdtd validate --schema <path-to-schema-file> <path-to-html-document --negate
+```
 
 ### Generate HTML & CSS
 
-```bash
-cdtd genhtml <path-to-schema-file> >> <path-to-new-HTML-document>
-```
+This opens an interactive prompt to generate HTML from a schema file.
 
 ```bash
-cdtd gencss <path-to-schema-file> >> <path-to-new-CSS-document>
+cdtd gen <path-to-schema-file>
+```
+
+#### CSS
+
+Add the `--file-type=css` flag to generate CSS instead of HTML.
+
+```bash
+cdtd gen --file-type=css <path-to-schema-file>
 ```

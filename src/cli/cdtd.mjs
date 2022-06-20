@@ -106,9 +106,9 @@ yargs(hideBin(process.argv))
       }
       process.stdin.setRawMode(true);
       process.stdin.resume();
-      let copied;
+      const flash = [];
       render(
-        { cart, cartselection, entries, entryselection },
+        { cart, cartselection, entries, entryselection, flash },
         process.stdout,
         fileType
       );
@@ -127,7 +127,9 @@ yargs(hideBin(process.argv))
         } else if (output.equals(keyBuffers.C)) {
           if (cart.length) {
             clipboard.writeSync(cart.join("\n"));
-            copied = true;
+            flash.push("\x1b[2m" + "copied!" + "\x1b[0m");
+          } else {
+            flash.push("\x1b[2m" + "buffer empty" + "\x1b[0m");
           }
         } else if (output.equals(keyBuffers.SHIFT_C)) {
           if (cart.length) {
@@ -176,7 +178,7 @@ yargs(hideBin(process.argv))
           cart.push(entries[entryselection][1]);
           cartselection = cart.length - 1;
         } else if (
-          output.equals(keyBuffers.ESCAPE) ||
+          output.equals(keyBuffers.BACKSPACE) ||
           output.equals(keyBuffers.S)
         ) {
           cart.splice(cartselection, 1);
@@ -185,11 +187,10 @@ yargs(hideBin(process.argv))
           }
         }
         render(
-          { cart, cartselection, entries, entryselection, copied },
+          { cart, cartselection, entries, entryselection, flash },
           process.stdout,
           fileType
         );
-        copied = false;
       }
     }
   )

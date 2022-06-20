@@ -7,7 +7,7 @@ import readline from "readline";
 //   readline.clearScreenDown(stream);
 // };
 const render = (
-  { cart, cartselection, entries, entryselection, copied },
+  { cart, cartselection, entries, entryselection, flash },
   stream,
   fileType
 ) => {
@@ -26,7 +26,19 @@ const render = (
   stream.write("↑,↓,k,j choose selection");
   stream.write("\n");
 
-  stream.write("esc,s remove from selection");
+  stream.write("esc,s   remove from selection");
+  stream.write("\n");
+
+  stream.write("c       copy secection");
+  stream.write("\n");
+
+  stream.write("shift+c copy secection and quit");
+  stream.write("\n");
+
+  stream.write("enter,q quit");
+  stream.write("\n");
+
+  stream.write("ctrl+c  force quit");
   stream.write("\n");
 
   // render entries
@@ -34,7 +46,7 @@ const render = (
   stream.write("-".repeat(stream.columns || 1));
   stream.write("\n");
   stream.write(
-    `${"\x1b[47m"}(${entryselection + 1}/${entries.length})${query}`.padEnd(
+    `${"\x1b[47m"} ${entryselection + 1}/${entries.length} : ${query}`.padEnd(
       stream.columns
     ) + "\x1b[0m"
   );
@@ -57,9 +69,9 @@ const render = (
       }
     }
   }
-  if (copied) {
-    stream.write("\x1b[2m" + "copied!" + "\x1b[0m");
-    stream.write("\n");
+  while (flash.length) {
+    process.stdout.write(flash.shift());
+    process.stdout.write("\n");
   }
 };
 export default render;

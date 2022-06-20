@@ -2,7 +2,7 @@
 
 DTD Drools, CSS-Like Rules!
 
-Validate HTML documents using CSS-Like syntax.
+Validate HTML documents with CSS-like syntax.
 
 [Motivation](https://johnhenry.github.io/blog/posts/cascading-document-type-definitions).
 
