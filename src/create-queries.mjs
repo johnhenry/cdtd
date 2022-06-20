@@ -1,12 +1,13 @@
 import getQueries from "./get-queries.mjs";
 const importMatch = /@import "(.+)";/;
+const commentMatch = /^\/\//;
 const nestedStart = /(.+){/;
 const nestedEnd = /};?/;
 const simpleMatch = /(.+);$/;
 export const createQueries = function* (rawLines = [], parent = []) {
   while (rawLines.length) {
     const line = rawLines.shift().trim();
-    if (!line) {
+    if (!line || commentMatch.test(line)) {
       continue;
     }
     if (nestedEnd.test(line)) {

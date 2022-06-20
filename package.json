@@ -1,5 +1,6 @@
 {
   "name": "cdtd",
+  "repository": "https://github.com/johnhenry/cdtd",
   "version": "0.0.0",
   "description": "",
   "main": "./src/index.mjs",
